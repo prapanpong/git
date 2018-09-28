@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+    <script src="{% static '/js/script.js'%}"></script>
+</head>
+<body>
+    <img src="{% static '/download.png' %}" width="100"/>
+    <img src="{% static '/images/B1.png' %}" width="100"/>
+    <h1 id='demo'>This is CSS test.</h1>
+    <button type="button" onclick="changeText()"> Click me </button>
+
+<p>This is paragraph</p>
+<p class="mygreen">This is paragraph</p>
+<p id="myblue">This is paragraph</p>
+<p id="myblue">This is paragraph</p>
+<input type="button" id="btRed" value="สีแดง" onclick="changeData('RED','#ff0000','20px')" />
+<input type="button" id="btYellow" value="สีเหลือง" onclick="changeData('YELLOW','#ffff99','30px')" />
+<input type="button" id="btGreen" value="สีเขียว" onclick="changeData('GREEN','GREEN','40px')" />
+
+<p id="myArea"> This is my Area.</p>
+
+</body>
+</html>
+

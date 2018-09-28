@@ -1,0 +1,98 @@
+#ติดตั้ง driver สำหรับ mysql
+
+pip install pymysql
+
+
+============================================
+#django admin interface ทำใน cmd การสร้างโปรเจ็ค
+#ทำในโฟนเดอร์ project ที่เราสร้างเช่น  D:\djangoEX\
+
+django-admin startproject projectX
+
+------------------------------
+#เพิ่มในไฟล์ __init__.py
+import pymysql
+pymysql.install_as_MySQLdb()
+
+------------------------------
+
+#connect mysql string file: settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '**DBname**',
+		'USER': 'root',
+		'PASSWORD': '',
+		'HOST':'localhost',
+		'PORT':'3306'
+    }
+}
+
+-----------------------------------------------
+
+=============================
+#run v apache for py folder current project
+python manage.py runserver
+
+localhost:8000/admin
+
+=============================
+python manage.py migrate
+python manage.py createsuperuser
+-- ตั้ง username เช่น root
+-- ใส่ email
+-- pass
+
+=============================
+#create app สร้างงานใน Django
+python manage.py startapp app2*
+
+
+#register app1 to project insert in project*/settings.py
+
+INSTALLED_APPS = [
+#....
+'app1',
+#....
+]
+
+
+
+#ทำที่ View.py และ utls.py
+
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates')], #***ต้องแก้ template เป็นชื่อ Folder
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+===============================================================
+#สร้างไฟล์จาก class ใน models.py แล้วรันคำสั่ง ได้ 0001__initail__.py ที่ django สร้างให้
+#คือการเอา model.py ไปสร้างเป็น Obj และสร้างในฐานข้อมูล
+#สร้าง ObJ เพื่อต่อไปจะไปสร้างตาราง Table ใน DB
+#นำไฟล์จาก 0001....0002.... ที่ได้จาก OBJ model ไปไมเกรดสร้างตาราง และคอลัม 
+---------------------------------------
+python manage.py makemigrations app1  
+
+python manage.py migrate 
+---------------------------------------
+===============================================================
+
+
+
+git config --global user.name "prapanpong"
+
+git config --global user.email k.prapanpong@live.com
