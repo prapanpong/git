@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Employee add</title>
+
+ </head>
+ <body>
+    <form method="POST" class="post-form" action="/employee/new/">
+    {% csrf_token %}
+    <p> ID: {{form.empID}}</p>
+    <p> Name: {{form.name}}</p>
+    <p> Email: {{form.email}}</p>
+    <p> Contact: {{form.contactName}}</p>
+    {% comment %} {{form.as_p}} {% endcomment %}
+    <button type="submit" class>submit</button>
+    <input type="reset" value="reset" />
+ </body>
+</html>

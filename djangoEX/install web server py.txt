@@ -8,7 +8,7 @@ pip install pymysql
 #ทำในโฟนเดอร์ project ที่เราสร้างเช่น  D:\djangoEX\
 
 django-admin startproject projectX
-
+django-admin startproject forestapps2
 ------------------------------
 #เพิ่มในไฟล์ __init__.py
 import pymysql
@@ -17,6 +17,12 @@ pymysql.install_as_MySQLdb()
 ------------------------------
 
 #connect mysql string file: settings.py
+
+#ทำ path 
+
+'DIRS': [os.path.join(BASE_DIR,'templates')],
+
+#เพื่อม DataBase connect
 
 DATABASES = {
     'default': {
@@ -33,9 +39,8 @@ DATABASES = {
 
 =============================
 #run v apache for py folder current project
-python manage.py runserver
 
-localhost:8000/admin
+python manage.py runserver
 
 =============================
 python manage.py migrate
@@ -44,10 +49,11 @@ python manage.py createsuperuser
 -- ใส่ email
 -- pass
 
+localhost:8000/admin
 =============================
 #create app สร้างงานใน Django
 python manage.py startapp app2*
-
+python manage.py startapp employee
 
 #register app1 to project insert in project*/settings.py
 
@@ -59,7 +65,7 @@ INSTALLED_APPS = [
 
 
 
-#ทำที่ View.py และ utls.py
+#ทำที่ View.py และ urls.py
 
 
 TEMPLATES = [
@@ -85,14 +91,16 @@ TEMPLATES = [
 #สร้าง ObJ เพื่อต่อไปจะไปสร้างตาราง Table ใน DB
 #นำไฟล์จาก 0001....0002.... ที่ได้จาก OBJ model ไปไมเกรดสร้างตาราง และคอลัม 
 ---------------------------------------
-python manage.py makemigrations app1  
-
+python manage.py makemigrations app1
+python manage.py makemigrations employee
 python manage.py migrate 
 ---------------------------------------
 ===============================================================
 
 
 
+
+#git
 git config --global user.name "prapanpong"
 
 git config --global user.email k.prapanpong@live.com

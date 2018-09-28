@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Employee List</title>
+ </head>
+
+ <body>
+<p style="font-size:25px;font-weight:bold;color:darkblue">Employee Data</p>
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Action</th>
+</tr>
+
+{% for emp in emplist %}
+<tr>
+    <td>aa{{ emp.empID }}</td>
+    <td>bb{{ emp.name }}</td>
+    <td>cc{{ emp.email }}</td>
+    <td>dd{{ emp.contactName }}</td>
+        <td>
+        <a href="/employee/edit/{{ emp.id }}">Edit</a>
+        <a href="/employee/delete/{{ emp.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/employee/new/">add new</a>
+    {% comment %} <form method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" class>submit</button>
+    <input type="reset" value="reset" /> {% endcomment %}
+ </body>
+</html>
